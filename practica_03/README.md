@@ -1,16 +1,4 @@
-# practica_03
+# practica_03/ practica 04
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image](https://github.com/Ant29bj/practicas-computo-nube/assets/111606983/a74792e6-aa7e-4a49-8fc1-26833c061566)
+![image](https://github.com/Ant29bj/practicas-computo-nube/assets/111606983/962717a1-11f2-4f59-8cf3-96a60bab84d4)
