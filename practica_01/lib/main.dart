@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practica_01/app/app.dart';
+import 'package:hello/src/app.dart';
 
 void main() {
   runApp(const MyApp());

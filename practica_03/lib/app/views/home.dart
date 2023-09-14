@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:practica_03/app/views/pagina2.dart';
-import 'package:practica_03/app/views/pagina3.dart';
+import 'package:practica_03/app/views/data.dart';
+
+const List<String> list = <String>['Hombre', 'Mujer'];
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});
@@ -12,6 +13,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  String _valor = list.first;
+  final _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,42 +26,54 @@ class _HomeState extends State<Home> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const Text('Pagina 1'),
-            const SizedBox(
-              height: 36,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 32),
+              child: TextField(
+                controller: _controller,
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    hintText: 'Nombre',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    )),
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Pagina3()),
-                    );
-                  },
-                  child: const Text('Pagina 3'),
-                ),
-                const SizedBox(
-                  width: 32,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Pagina2()),
-                    );
-                  },
-                  child: const Text('Pagina 2'),
-                )
-              ],
+            DropdownButton<String>(
+              onChanged: (String? value) {
+                setState(() {
+                  if (value != null) {
+                    _valor = value;
+                  }
+                });
+              },
+              value: _valor,
+              items: list.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (_controller.text.isNotEmpty) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) {
+                      return DataPage(
+                        nombre: _controller.text,
+                        genero: _valor,
+                      );
+                    },
+                  ));
+                }
+              },
+              child: const Text('Guardar'),
             )
           ],
         ),
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
