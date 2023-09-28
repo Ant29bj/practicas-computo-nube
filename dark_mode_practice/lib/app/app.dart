@@ -1,5 +1,7 @@
+import 'package:dark_mode_practice/app/themes/themeProvider.dart';
+import 'package:dark_mode_practice/app/views/home.dart';
 import 'package:flutter/material.dart';
-import 'package:practica_08/app/views/home.dart';
+import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -7,14 +9,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xff4a4a4a),
-        ),
-        useMaterial3: true,
-      ),
       debugShowCheckedModeBanner: false,
       home: const Home(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
