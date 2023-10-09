@@ -10,8 +10,8 @@ Color randomColor() {
 }
 
 class CardsProvider with ChangeNotifier {
-  var actual;
-
+  var currentCard = CardModel();
+  List<CardModel> cardStack = [];
   final List<CardModel> _cards = [
     CardModel(text: '👻'),
     CardModel(text: '👽'),
@@ -20,7 +20,7 @@ class CardsProvider with ChangeNotifier {
     CardModel(text: '🐷'),
     CardModel(text: '🤠'),
     CardModel(text: '🤡'),
-    CardModel(text: '🐱‍👤'),
+    CardModel(text: '🐱'),
     CardModel(text: '🤑'),
     CardModel(text: '🐀'),
     CardModel(text: '🐵'),
@@ -35,19 +35,17 @@ class CardsProvider with ChangeNotifier {
 
   List get getTotalCards => totalCards;
 
-  void verifyActual(int current) {
-    print('entre');
-    if (actual == null) {
-      actual = current;
-    } else if (totalCards[actual].text == totalCards[current].text &&
-        actual != current) {
-      totalCards[actual].found = true;
-      totalCards[current].found = true;
-      print('Par');
-    } else {
-      print('Reset');
-      actual = null;
-    }
+  void pushCardToStack(CardModel cardModel) {
+    cardStack.add(cardModel);
     notifyListeners();
   }
+
+  void flushStack() {
+    cardStack = [];
+    notifyListeners();
+  }
+
+  int get getLengtOfStack => cardStack.length;
+
+  void verifyActual(int current) {}
 }

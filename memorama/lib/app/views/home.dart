@@ -10,25 +10,25 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final CardsProvider _cardsRepository = CardsProvider();
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CardsProvider(),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-          child: GridView.count(
-            crossAxisCount: 4,
-            padding: const EdgeInsets.all(8),
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            children: List.generate(
-              _cardsRepository.getTotalCards.length,
-              (index) => CustomCard(
-                cardModel: _cardsRepository.getTotalCards[index],
-                index: index,
-              ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: GridView.count(
+          crossAxisCount: 4,
+          padding: const EdgeInsets.all(8),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          children: List.generate(
+            Provider.of<CardsProvider>(context, listen: false)
+                .getTotalCards
+                .length,
+            (index) => CustomCard(
+              cardModel: Provider.of<CardsProvider>(context, listen: false)
+                  .getTotalCards[index],
+              index: index,
+              open: false,
             ),
           ),
         ),
