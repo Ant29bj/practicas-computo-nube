@@ -9,9 +9,8 @@ Color randomColor() {
   return color;
 }
 
-class CardsProvider with ChangeNotifier {
+class Game {
   var currentCard = CardModel();
-  List<CardModel> cardStack = [];
   final List<CardModel> _cards = [
     CardModel(text: '👻'),
     CardModel(text: '👽'),
@@ -28,24 +27,15 @@ class CardsProvider with ChangeNotifier {
   ];
 
   List<CardModel> totalCards = [];
-  CardsProvider() {
+
+  Game() {
     totalCards = List.from(_cards)..addAll(_cards);
     totalCards.shuffle();
   }
 
-  List get getTotalCards => totalCards;
+  List<CardModel> get getTotalCards => totalCards;
 
-  void pushCardToStack(CardModel cardModel) {
-    cardStack.add(cardModel);
-    notifyListeners();
+  void setTotalCards(List<CardModel> cards) {
+    totalCards = cards;
   }
-
-  void flushStack() {
-    cardStack = [];
-    notifyListeners();
-  }
-
-  int get getLengtOfStack => cardStack.length;
-
-  void verifyActual(int current) {}
 }

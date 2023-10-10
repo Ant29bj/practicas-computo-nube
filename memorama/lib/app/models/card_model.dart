@@ -7,8 +7,13 @@ class CardModel {
 
   get textCard => text;
   get foundCard => found;
+  get getOpen => this.open;
 
   set setFound(bool found) {
     this.found = found;
+  }
+
+  set setOpen(bool open) {
+    this.open = open;
   }
 }
