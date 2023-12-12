@@ -36,9 +36,9 @@ class _HomeState extends State<Home> {
               int minLen =
                   min(_cardControllers.length, provider.getListOfCards.length);
               for (int i = 0; i < minLen; i++) {
-                if (provider.getListOfCards[i].open &&
-                    !provider.getListOfCards[i].found) {
+                if (provider.getListOfCards[i].open) {
                   _cardControllers[i].toggleCard();
+                  provider.getListOfCards[i].open = false;
                 }
               }
             }

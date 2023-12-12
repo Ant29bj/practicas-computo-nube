@@ -45,6 +45,7 @@ class _CustomCardState extends State<CustomCard> {
       widget.controller.toggleCard();
       if (_provider.getTotalCheck.length == 2) {
         _provider.verifyCards();
+        _provider.getListOfCards[widget.index].open = true;
         widget.fillpAllCardsCallback();
       }
     }

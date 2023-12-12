@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Bulbasaur",
+    "type": ["Planta"]
+  },
+  {
+    "name": "Charmeleon",
+    "type": ["Fuego"]
+  },
+  {
+    "name": "Squirtle",
+    "type": ["Agua"]
+  },
+  {
+    "name": "Bulbasaur",
+    "type": ["Planta"]
+  },
+  {
+    "name": "Charmeleon",
+    "type": ["Fuego"]
+  },
+  {
+    "name": "Squirtle",
+    "type": ["Agua"]
+  },
+  {
+    "name": "Bulbasaur",
+    "type": ["Planta"]
+  },
+  {
+    "name": "Charmeleon",
+    "type": ["Fuego"]
+  },
+  {
+    "name": "Squirtle",
+    "type": ["Agua"]
+  }
+]
